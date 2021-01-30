@@ -1,0 +1,160 @@
+/* INIZIALIZZAZIONE */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+/* HELPER */
+.border {
+  border: 1px solid black;
+}
+/* HEADER */
+header {
+  min-width: 1200px;
+  background-color: lightgrey;
+  height: 100px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+header ul {
+  width: 300px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  list-style: none;
+}
+header ul li a {
+  text-decoration: none;
+  font-size: 20px;
+  color: grey;
+}
+header ul li a:hover {
+  font-weight: bolder;
+}
+header ul li.active a {
+  color: green;
+}
+/* GENERAL */
+main {
+  position: absolute;
+  top: 100px;
+  width: 100%;
+  background-color: grey;
+  min-width: 1200px;
+  padding: 30px 0;
+}
+/* INDEX */
+div.index-container {
+  background-color: lightgrey;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+div.index-container section.top-container {
+  border-left: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+  font-size: 16px;
+  font-weight: 600;
+}
+div.index-container section.top-container div.column {
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+div.index-container section.bottom-container ul.row {
+  border-left: 1px solid black;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+}
+div.index-container section.bottom-container ul.row li {
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 100%;
+}
+div.index-container section.bottom-container ul.row li a {
+  text-decoration: none;
+  color: orange;
+}
+div.index-container section.bottom-container ul.row li a:hover {
+  color: red;
+}
+/* SHOW */
+main.guest-details {
+  min-height: calc(100vh - 100px);
+  padding-left: 20px;
+  padding-right: 20px;
+}
+main.guest-details h1 {
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+main.guest-details p {
+  font-size: 20px;
+  font-weight: 400,
+}
+/* CREATE */
+main.create {
+  min-height: calc(100vh - 100px);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+main.create form {
+  background-color: lightgrey;
+  width: 50%;
+}
+main.create form div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px;
+}
+main.create form div input {
+  padding: 10px 5px;
+}
+main.create form div input, main.create form div textarea {
+  border: none;
+  padding: 5px;
+}
+main.create form div input:focus, main.create form div textarea:focus {
+  outline: none !important;
+}
+main.create form div.details {
+  flex-direction: column;
+  align-items: center;
+}
+main.create form div.details label {
+  margin-bottom: 5px;
+}
+main.create form div.button {
+  justify-content: center;
+}
+main.create form div.button button {
+  padding: 10px;
+  background-color: #FFFFFF;
+  border: none;
+}
+main.create form div.button button:hover {
+  color: #FFFFFF;
+  background-color: black;
+  cursor: pointer;
+}
