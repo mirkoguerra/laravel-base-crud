@@ -24,12 +24,13 @@
         <li>{{ $guest->room }}</li>
         <li>{{ $guest->from_date }}</li>
         <li>{{ $guest->to_date }}</li>
-        <li><a href="{{route('showw', $guest->id)}}">Dettagli</a></li>
+        <li>
+          <a href="{{ route('bookings.show', $guest->id) }}">Dettagli</a>
+          <a href="{{ route('bookings.edit', $guest->id) }}">Modifica</a>
+        </li>
       </ul>
       @endforeach
     </section>
-
-
 
   </div>
 

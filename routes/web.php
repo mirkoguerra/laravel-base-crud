@@ -17,6 +17,4 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::resource('/', 'BookingsController');
-
-Route::get('dettagli/{id}', 'BookingsController@showw') -> name('showw');
+Route::resource('/bookings', 'BookingsController');

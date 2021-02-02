@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Booking;
 
+use App\Http\Requests\BookingFormRequest;
+
 class BookingsController extends Controller
 {
     /**
@@ -45,31 +47,22 @@ class BookingsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BookingFormRequest $request)
     {
+      $validated = $request->validated();
+
       $newGuest = new Booking();
 
-      $newGuest->guest_full_name = $request->input('guest_full_name');
-      $newGuest->guest_credit_card = $request->input('guest_credit_card');
-      $newGuest->room = $request->input('room');
-      $newGuest->from_date = $request->input('from_date');
-      $newGuest->to_date = $request->input('to_date');
-      $newGuest->more_details = $request->input('more_details');
+      $newGuest->guest_full_name = $validated['guest_full_name'];
+      $newGuest->guest_credit_card = $validated['guest_credit_card'];
+      $newGuest->room = $validated['room'];
+      $newGuest->from_date = $validated['from_date'];
+      $newGuest->to_date = $validated['to_date'];
+      $newGuest->more_details = $validated['more_details'];
 
       $newGuest->save();
 
-      $guests = Booking::all();
-
-      $columns = [
-        'id' => '#',
-        'guest' => 'Nome e Cognome',
-        'room_number' => 'Numero Stanza',
-        'from' => 'Data di Arrivo',
-        'to' => 'Data di Uscita',
-        'details' => 'Dettagli'
-      ];
-
-      return view('index', compact(['guests', 'columns']));
+      return redirect()->route('bookings.index');
     }
 
     /**
@@ -93,7 +86,9 @@ class BookingsController extends Controller
      */
     public function edit($id)
     {
-        //
+      $guest_to_edit = Booking::find($id);
+
+      return view('edit', compact('guest_to_edit'));
     }
 
     /**
@@ -103,9 +98,23 @@ class BookingsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(BookingFormRequest $request, $id)
     {
-        //
+      $validated = $request->validated();
+
+      $oldGuest = Booking::find($id);
+
+      $oldGuest->guest_full_name = $validated['guest_full_name'];
+      $oldGuest->guest_credit_card = $validated['guest_credit_card'];
+      $oldGuest->room = $validated['room'];
+      $oldGuest->from_date = $validated['from_date'];
+      $oldGuest->to_date = $validated['to_date'];
+      $oldGuest->more_details = $validated['more_details'];
+
+
+      $oldGuest->save();
+
+      return redirect()->route('bookings.index');
     }
 
     /**
@@ -118,11 +127,4 @@ class BookingsController extends Controller
     {
         //
     }
-
-  public function showw($id)
-  {
-    $guest_details = Booking::find($id);
-
-    return view('show', compact('guest_details'));
-  }
 }

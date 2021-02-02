@@ -91,6 +91,7 @@ div.index-container section.bottom-container ul.row li {
 div.index-container section.bottom-container ul.row li a {
   text-decoration: none;
   color: orange;
+  padding: 0 10px;
 }
 div.index-container section.bottom-container ul.row li a:hover {
   color: red;
@@ -110,7 +111,7 @@ main.guest-details p {
   font-size: 20px;
   font-weight: 400,
 }
-/* CREATE */
+/* CREATE / UPDATE */
 main.create {
   min-height: calc(100vh - 100px);
   display: flex;
@@ -128,6 +129,9 @@ main.create form div {
   justify-content: space-between;
   padding: 20px;
 }
+main.create form div p {
+  color: red;
+}
 main.create form div input {
   padding: 10px 5px;
 }
@@ -144,6 +148,9 @@ main.create form div.details {
 }
 main.create form div.details label {
   margin-bottom: 5px;
+}
+main.create form div.details p {
+  margin-top: 5px;
 }
 main.create form div.button {
   justify-content: center;

@@ -5,16 +5,16 @@
 @section('content')
 
 <main class="create">
-  <form class="" action="{{ route('bookings.store') }}" method="post">
+  <form class="" action="{{ route('bookings.update', $guest_to_edit->id) }}" method="post">
     @csrf
-    @method('post')
+    @method('put')
 
     <div class="full-name">
       <label for="full-name">Nome e Cognome</label>
       @error('guest_full_name')
       <p>errore in "Nome e Cognome" ---></p>
       @enderror
-      <input autocomplete="off" type="text" id="full-name" name="guest_full_name">
+      <input autocomplete="off" type="text" id="full-name" name="guest_full_name" value="{{ $guest_to_edit->guest_full_name }}">
     </div>
 
     <div class="credit-card">
@@ -22,7 +22,7 @@
       @error('guest_credit_card')
       <p>errore in "Numero Carta" ---></p>
       @enderror
-      <input autocomplete="off" type="text" id="credit-card" name="guest_credit_card">
+      <input autocomplete="off" type="text" id="credit-card" name="guest_credit_card" value="{{ $guest_to_edit->guest_credit_card }}">
     </div>
 
     <div class="room">
@@ -30,7 +30,7 @@
       @error('room')
       <p>errore in "Numero Stanza" ---></p>
       @enderror
-      <input autocomplete="off" type="text" id="room" name="room">
+      <input autocomplete="off" type="text" id="room" name="room" value="{{ $guest_to_edit->room }}">
     </div>
 
     <div class="from-date">
@@ -38,7 +38,7 @@
       @error('from_date')
       <p>errore in "Data di Arrivo" ---></p>
       @enderror
-      <input autocomplete="off" type="text" id="from-date" name="from_date">
+      <input autocomplete="off" type="text" id="from-date" name="from_date" value="{{ $guest_to_edit->from_date }}">
     </div>
 
     <div class="to-date">
@@ -46,12 +46,12 @@
       @error('to_date')
       <p>errore in "Data di Uscita" ---></p>
       @enderror
-      <input autocomplete="off" type="text" id="to-date" name="to_date">
+      <input autocomplete="off" type="text" id="to-date" name="to_date" value="{{ $guest_to_edit->to_date }}">
     </div>
 
     <div class="details">
       <label for="details">Dettagli</label>
-      <textarea autocomplete="off" id="details" name="more_details" rows="8" cols="60"></textarea>
+      <textarea autocomplete="off" id="details" name="more_details" rows="8" cols="60">{{ $guest_to_edit->more_details }}</textarea>
       @error('more_details')
       <p>errore in "Dettagli"</p>
       @enderror

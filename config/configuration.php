@@ -4,7 +4,7 @@ return
 [
   'routes' =>
   [
-    ['pathId' => 'index', 'displayText' => 'Home'],
-    ['pathId' => 'create', 'displayText' => 'Aggiungi Prenotazione']
+    ['pathId' => 'bookings.index', 'displayText' => 'Home'],
+    ['pathId' => 'bookings.create', 'displayText' => 'Aggiungi Prenotazione']
   ]
 ];
