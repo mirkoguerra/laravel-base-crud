@@ -51,7 +51,7 @@ main {
 /* INDEX */
 div.index-container {
   background-color: lightgrey;
-  width: 80%;
+  width: 90%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -91,9 +91,18 @@ div.index-container section.bottom-container ul.row li {
 div.index-container section.bottom-container ul.row li a {
   text-decoration: none;
   color: orange;
-  padding: 0 10px;
 }
-div.index-container section.bottom-container ul.row li a:hover {
+div.index-container section.bottom-container ul.row li button {
+  border: none;
+  color: orange;
+  background-color: lightgrey;
+  font-size: 16px;
+  cursor: pointer;
+}
+div.index-container section.bottom-container ul.row li a.mod {
+  padding: 0 4px;
+}
+div.index-container section.bottom-container ul.row li a:hover, div.index-container section.bottom-container ul.row li button:hover {
   color: red;
 }
 /* SHOW */

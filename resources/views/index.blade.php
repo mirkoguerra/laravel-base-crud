@@ -26,7 +26,12 @@
         <li>{{ $guest->to_date }}</li>
         <li>
           <a href="{{ route('bookings.show', $guest->id) }}">Dettagli</a>
-          <a href="{{ route('bookings.edit', $guest->id) }}">Modifica</a>
+          <a class="mod" href="{{ route('bookings.edit', $guest->id) }}">Modifica</a>
+          <form action="{{ route('bookings.destroy', $guest->id) }}" method="post">
+            @csrf
+            @method('delete')
+            <button type="submit">Elimina</button>
+          </form>
         </li>
       </ul>
       @endforeach
