@@ -22,7 +22,7 @@ header {
   align-items: center;
 }
 header ul {
-  width: 300px;
+  width: 800px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -38,6 +38,18 @@ header ul li a:hover {
 }
 header ul li.active a {
   color: green;
+}
+header ul li input, header ul li button {
+  font-size: 16px;
+  padding: 5px;
+  border: none;
+}
+header ul li input:focus {
+  outline: none !important;
+}
+header ul li button:hover {
+  cursor: pointer;
+  background-color: green;
 }
 /* GENERAL */
 main {

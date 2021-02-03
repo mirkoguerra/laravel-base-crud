@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Validator;
+
 use App\Booking;
 
 use App\Http\Requests\BookingFormRequest;
@@ -15,9 +17,21 @@ class BookingsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-      $guests = Booking::all();
+
+      $validatore = Validator::make(
+        $request->all(),
+        [
+          'q' => 'string|min:3'
+        ]
+      );
+
+      if (!$validatore->fails()) {
+        $guests = Booking::where('guest_full_name', 'LIKE', "%$request->q%")->get();
+      } else {
+        $guests = Booking::all();
+      }
 
       $columns = [
         'id' => '#',
